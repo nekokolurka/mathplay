@@ -1,1 +1,20 @@
-
+#include<locale.h>
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<time.h>
+void ZAPZN(char*, int, int);
+//функция заполенения массива знаков
+void ZAPZN(char* ZNAK, int kol, int skob)
+{
+    int sk = skob;
+    for (int i = ((kol - 2) - skob); i >= 1; i -= 2)//от (количества символов-количество скобок) заполняем через каждые две ячейки, так как помимо знаков одновременно вставляются еще и скобки
+    {
+        int c = 1 + rand() % 5;//генерируется случайное число от 1 до 5, а потом в зависимости от числа в ячейку массива вставляется один из 5 знаков и скобка в конец цепочки и в перед знаком
+        if (c == 1) { ZNAK[i] = '+'; ZNAK[(kol - 2) - sk + 1] = ')'; sk--; ZNAK[i - 1] = '('; }
+        else if (c == 2) { ZNAK[i] = '-'; ZNAK[(kol - 2) - sk + 1] = ')'; sk--; ZNAK[i - 1] = '('; }
+        else if (c == 3) { ZNAK[i] = '*'; ZNAK[(kol - 2) - sk + 1] = ')'; sk--; ZNAK[i - 1] = '('; }
+        else if (c == 4) { ZNAK[i] = '/'; ZNAK[(kol - 2) - sk + 1] = ')'; sk--; ZNAK[i - 1] = '('; }
+        else if (c == 5) { ZNAK[i] = '^'; ZNAK[(kol - 2) - sk + 1] = ')'; sk--; ZNAK[i - 1] = '('; }
+    }
+}
