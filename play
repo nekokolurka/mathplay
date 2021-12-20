@@ -73,3 +73,36 @@ void VIVOD(char* VIR, int* CHIS, int kol)
     }
     printf("\n");
 }
+float SCHET(char*, int*, int, int, int);
+//данная функция отвечает за вычисление всего выражения
+float SCHET(char* VIR, int* CHIS, int kol, int skob, int chis)
+{
+    int i = kol, j = chis - 2;
+    float schet = (float)CHIS[chis - 1];
+
+    for (i = kol; i >= 0; i--)//алгоритм вычисления достаточно простой, просто проверка знаков и соответствующие им действия
+    {
+        if (VIR[i] == '^')
+        {
+            schet = pow((float)CHIS[j], schet); j--;
+        }
+        else if (VIR[i] == '*')
+        {
+            schet = (float)CHIS[j] * schet; j--;
+        }
+        else if (VIR[i] == '/')
+        {
+            schet = (float)CHIS[j] / schet; j--;
+        }
+        else if (VIR[i] == '-')
+        {
+            schet = CHIS[j] - schet; j--;
+        }
+        else if (VIR[i] == '+')
+        {
+            schet = CHIS[j] + schet; j--;
+        }
+
+    }
+
+    return schet;
