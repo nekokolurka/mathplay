@@ -18,3 +18,8 @@ void ZAPZN(char* ZNAK, int kol, int skob)
         else if (c == 5) { ZNAK[i] = '^'; ZNAK[(kol - 2) - sk + 1] = ')'; sk--; ZNAK[i - 1] = '('; }
     }
 }
+void PREOBRAZ(char*, int, int*, int*);
+//функция-преобразователь массива знаков. в зависимости от приоритета убираются лишние скобки, 
+//переменная отвечающая за скобки передана как указатель, чтобы менять ее и в мейне
+void PREOBRAZ(char* VIR, int kol, int* skob, int* nuli)
+{
