@@ -252,3 +252,4 @@ int main()
                     free(VIR);
                     itog2 = (int)itog;
                     if (itog < 10000 && itog>-10000)
+		    {
